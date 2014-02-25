@@ -4,5 +4,8 @@
   "description": "A way to keep your comments organized.",
   "devDependencies": {
     "gulp-util": "~2.2.14"
+  },
+  "dependencies": {
+    "gulp-util": "~2.2.14"
   }
 }
