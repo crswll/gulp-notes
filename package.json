@@ -1,11 +1,17 @@
 {
   "name": "gulp-notes",
   "version": "0.0.1",
-  "description": "A way to keep your comments organized.",
-  "devDependencies": {
-    "gulp-util": "~2.2.14"
-  },
+  "description": "A small utility to grab specially marked comments to move to a notes file.",
+  "main": "index.js",
   "dependencies": {
-    "gulp-util": "~2.2.14"
-  }
+    "gulp-util": "~2.2.14",
+    "lodash": "~2.4.1",
+    "through": "~2.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
