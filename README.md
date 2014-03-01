@@ -14,8 +14,8 @@ Quickly scan your files for specially formatted comments and dump them to a file
     ['<!--', '-->']
   ],
   templates: {
-    header: '# Notes #\n',
-    label: '\n## <%= label %> ##\n',
+    header: '# Notes\n',
+    label: '\n## <%= label %>\n',
     note: '* <%= note %> - <%= fileName %>:<%= lineNumber %>\n',
     empty: '\nYou have literally nothing to do.\n',
     footer: '\nGenerated: **<%= dateCreated %>**'
