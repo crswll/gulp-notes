@@ -1,6 +1,6 @@
 # gulp-notes
 
-Quickly scan your files for specially formatted comments and dump them to a file.
+Quickly scan your files for specially formatted comments and dump them to a file. **This is still really beta.**
 
 
 ## Options
