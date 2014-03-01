@@ -41,7 +41,7 @@ gulp.task('notes', function() {
 ## Quick Example
 
 ```javascript
-/* BILL: Don't use a regular expression here! */
+/* BILL: Don't use a regular expression here, .indexOf is plenty! */
 var index = file.search(/bill/);
 
 /* FIXME: This is broken */
