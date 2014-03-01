@@ -41,11 +41,14 @@ gulp.task('notes', function() {
 ## Quick Example
 
 ```javascript
-/* BILL: Don't use a regular expression here, .indexOf is plenty! */
+/* BILL: Don't use a regular expression here, .indexOf is plenty idiot! */
 var index = file.search(/bill/);
 
 /* FIXME: This is broken */
 var durr = 'Hello +' World;
+
+// TODO: Make some useful examples.
+var example = true;
 ```
 
 Then we `gulp` and get this beautiful thang.
@@ -54,12 +57,13 @@ Then we `gulp` and get this beautiful thang.
 # Notes
 
 ## BILL
+Don't use a regular expression here, .indexOf is plenty idiot! - **js/file.js:1**
 
 ## FIXME
-* Make it neat. - **js/another.js:3**
+* This is broken - **js/file.js:4**
 
-## NOTES
-* New Note why is this not working? - **js/another.js:6**
+## TODO
+* Make some useful examples. - **js/file.js:7**
 
 Generated: **Saturday, March 1st, 2014, 1:20:35 PM**
 ```
