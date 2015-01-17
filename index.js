@@ -33,14 +33,14 @@ function Notes (options) {
         if (_.isString(options.fileName)) {
           settings.fileName = options.fileName;
         } else {
-          error = 'The fileName option has to be a string....'
+          error = 'The fileName option has to be a string....';
         }
       }
       if (options.templates) {
         if (_.isObject(options.templates)) {
           settings.templates = _.extend(settings.templates, options.templates);
         } else {
-          error = 'The templates option has to be an object...'
+          error = 'The templates option has to be an object...';
         }
       }
       if (options.formats) {
