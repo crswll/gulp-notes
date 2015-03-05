@@ -109,7 +109,7 @@ function Notes (options) {
 
     });
 
-  };
+  }
 
   function write () {
 
