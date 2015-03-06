@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jshint ."
+    "test": "jshint . && jscs ."
   },
   "author": "",
   "license": "ISC"
