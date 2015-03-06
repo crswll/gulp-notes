@@ -54,7 +54,9 @@ function Notes (options) {
       error = 'The options have to be an object...';
     }
 
-    if (error) throw new gutil.PluginError(PLUGIN_NAME, error);
+    if (error) {
+      throw new gutil.PluginError(PLUGIN_NAME, error);
+    }
 
   }
 
@@ -66,19 +68,22 @@ function Notes (options) {
 
   function read (fileObject) {
 
-    if(fileObject.isNull() || fileObject.isStream()) return false;
+    if(fileObject.isNull() || fileObject.isStream()) {
+      return false;
+    }
 
-    if (!firstFile) firstFile = fileObject;
+    if (!firstFile) {
+      firstFile = fileObject;
+    }
 
-    var file = fileObject.contents.toString('utf8'),
-        fileType = fileObject.relative.split('.').pop();
+    var file = fileObject.contents.toString('utf8');
 
     _.each(formats, function (format) {
 
       var lastIndex = 0,
           open = format[0],
           close = format[1],
-          openIndex = file.indexOf(open), 
+          openIndex = file.indexOf(open),
           closeIndex = file.indexOf(close, openIndex);
 
       while (openIndex > -1 && closeIndex > -1 ) {
@@ -143,8 +148,8 @@ function Notes (options) {
       output.push(_.template(templates.empty, {}));
     }
 
-    output.push(_.template(templates.footer, { 
-      dateCreated: gutil.date("dddd, mmmm dS, yyyy, h:MM:ss TT") 
+    output.push(_.template(templates.footer, {
+      dateCreated: gutil.date("dddd, mmmm dS, yyyy, h:MM:ss TT")
     }));
 
     output = output.join('').replace('\n', gutil.linefeed);
