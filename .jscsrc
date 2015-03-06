@@ -64,5 +64,8 @@
   "validateIndentation": 2,
   "validateLineBreaks": "LF",
   "validateParameterSeparator": ", ",
-  "validateQuoteMarks": "'"
+  "validateQuoteMarks": "'",
+  "excludeFiles": [
+    "node_modules"
+  ]
 }
