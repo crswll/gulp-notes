@@ -1,4 +1,4 @@
-# gulp-notes
+# gulp-notes [![Build Status](https://travis-ci.org/crswll/gulp-notes.svg?branch=master)](https://travis-ci.org/crswll/gulp-notes)
 
 Quickly scan your files for specially formatted comments and dump them to a file. **This is still really beta.**
 
