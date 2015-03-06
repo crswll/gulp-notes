@@ -1,28 +1,27 @@
 'use strict';
 
-var through = require('through'),
-    gutil = require('gulp-util'),
-    _ = require('lodash');
+var through = require('through');
+var gutil = require('gulp-util');
+var _ = require('lodash');
 
 function Notes (options) {
 
-  var
-    PLUGIN_NAME = 'gulp-notes',
-    settings = {
-      fileName: 'notes.md',
-      formats: [
-        ['/*', '*/'],
-        ['//', '\n'],
-        ['<!--', '-->']
-      ],
-      templates: {
-        header: '# Notes\n',
-        label: '\n## <%= label %>\n',
-        note: '* <%= note %> - **<%= fileName %>:<%= lineNumber %>**\n',
-        empty: '\nYou have literally nothing to do.\n',
-        footer: '\nGenerated: **<%= dateCreated %>**'
-      }
-    };
+  var PLUGIN_NAME = 'gulp-notes';
+  var settings = {
+    fileName: 'notes.md',
+    formats: [
+      ['/*', '*/'],
+      ['//', '\n'],
+      ['<!--', '-->']
+    ],
+    templates: {
+      header: '# Notes\n',
+      label: '\n## <%= label %>\n',
+      note: '* <%= note %> - **<%= fileName %>:<%= lineNumber %>**\n',
+      empty: '\nYou have literally nothing to do.\n',
+      footer: '\nGenerated: **<%= dateCreated %>**'
+    }
+  };
 
   if (options) {
 
@@ -60,15 +59,15 @@ function Notes (options) {
 
   }
 
-  var firstFile = null,
-      collection = [],
-      fileName = settings.fileName,
-      formats = settings.formats,
-      templates = settings.templates;
+  var firstFile = null;
+  var collection = [];
+  var fileName = settings.fileName;
+  var formats = settings.formats;
+  var templates = settings.templates;
 
   function read (fileObject) {
 
-    if(fileObject.isNull() || fileObject.isStream()) {
+    if (fileObject.isNull() || fileObject.isStream()) {
       return false;
     }
 
@@ -80,22 +79,22 @@ function Notes (options) {
 
     _.each(formats, function (format) {
 
-      var lastIndex = 0,
-          open = format[0],
-          close = format[1],
-          openIndex = file.indexOf(open),
-          closeIndex = file.indexOf(close, openIndex);
+      var lastIndex = 0;
+      var open = format[0];
+      var close = format[1];
+      var openIndex = file.indexOf(open);
+      var closeIndex = file.indexOf(close, openIndex);
 
-      while (openIndex > -1 && closeIndex > -1 ) {
+      while (openIndex > -1 && closeIndex > -1) {
 
-        var comment = file.slice(openIndex + open.length, closeIndex),
-            data = comment.split(':');
+        var comment = file.slice(openIndex + open.length, closeIndex);
+        var data = comment.split(':');
 
-        if ( data.length === 2 && data[0].toUpperCase() === data[0] ) {
+        if (data.length === 2 && data[0].toUpperCase() === data[0]) {
 
-          var label = data[0].trim(),
-              note = data[1].trim().replace(/\s{2,}|\n/g, ' '),
-              lineNumber = file.slice(0, openIndex).split('\n').length;
+          var label = data[0].trim();
+          var note = data[1].trim().replace(/\s{2,}|\n/g, ' ');
+          var lineNumber = file.slice(0, openIndex).split('\n').length;
 
           collection.push({
             label: label,
@@ -118,9 +117,9 @@ function Notes (options) {
 
   function write () {
 
-    var labelTemplate = _.template(templates.label),
-        noteTemplate = _.template(templates.note),
-        output = [];
+    var labelTemplate = _.template(templates.label);
+    var noteTemplate = _.template(templates.note);
+    var output = [];
 
     output.push(_.template(templates.header, {}));
 
@@ -135,7 +134,7 @@ function Notes (options) {
         }));
 
         var sortedNotes = _.sortBy(notes, function(note) {
-          return note.fileName + ':' + ( '000000' + note.lineNumber ).slice(-6);
+          return note.fileName + ':' + ('000000' + note.lineNumber).slice(-6);
         });
 
         _.each(sortedNotes, function(note) {
@@ -149,7 +148,7 @@ function Notes (options) {
     }
 
     output.push(_.template(templates.footer, {
-      dateCreated: gutil.date("dddd, mmmm dS, yyyy, h:MM:ss TT")
+      dateCreated: gutil.date('dddd, mmmm dS, yyyy, h:MM:ss TT')
     }));
 
     output = output.join('').replace('\n', gutil.linefeed);
