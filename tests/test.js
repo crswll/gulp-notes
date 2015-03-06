@@ -107,3 +107,21 @@ it('`notes.md` should contain a message when no items were found', function (don
     done();
   });
 });
+
+it('Should combine line breaks into one line', function (done) {
+  var files = [];
+
+  gulp.src([
+    path.join(__dirname, 'fixture', 'multiline.js')
+  ])
+  .pipe(notes())
+  .on('data', function (data) {
+    files.push(data);
+  })
+
+  .on('end', function () {
+    var contents = files[0].contents.toString();
+    assert.notEqual(contents.indexOf('Let\'s see what happens with multiple lines. Boogie woogie.'), -1);
+    done();
+  });
+});
