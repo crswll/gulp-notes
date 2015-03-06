@@ -12,6 +12,6 @@
   "scripts": {
     "test": "jshint . && jscs ."
   },
-  "author": "",
+  "author": "Bill Criswell <bill.criswell@gmail.com>",
   "license": "ISC"
 }
