@@ -48,14 +48,15 @@ it('`notes.md` file should get generated correctly', function (done) {
 
   .on('end', function () {
     var contents = files[0].contents.toString();
+    var lines = contents.split('\n');
 
-    assert.strictEqual(contents.split('\n')[0], '# Notes', 'Should have a header');
-    assert.strictEqual(contents.split('\n')[2], '## TODO');
-    assert.strictEqual(contents.split('\n')[3], '* Write more tests - **fixture.js:1**');
-    assert.strictEqual(contents.split('\n')[8], '## ARTHUR');
-    assert.strictEqual(contents.split('\n')[9], '* Do this - **fixture.js:3**');
+    assert.strictEqual(lines[0], '# Notes', 'Should have a header');
+    assert.strictEqual(lines[2], '## TODO');
+    assert.strictEqual(lines[3], '* Write more tests - **fixture.js:1**');
+    assert.strictEqual(lines[8], '## ARTHUR');
+    assert.strictEqual(lines[9], '* Do this - **fixture.js:3**');
 
-    assert(/Generated: \*\*.+\*\*/.exec(contents.split('\n').pop()),
+    assert(/Generated: \*\*.+\*\*/.exec(lines.pop()),
       'notes.md should have the date which is generated upon');
 
     done();
