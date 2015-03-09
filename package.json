@@ -1,6 +1,6 @@
 {
   "name": "gulp-notes",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A small utility to grab specially marked comments to move to a notes file.",
   "main": "index.js",
   "dependencies": {
