@@ -1,6 +1,6 @@
 # gulp-notes [![Build Status](https://travis-ci.org/crswll/gulp-notes.svg?branch=master)](https://travis-ci.org/crswll/gulp-notes)
 
-Quickly scan your files for specially formatted comments and dump them to a file. **This is still really beta.**
+Quickly scan your files for specially formatted comments and dump them to a file.
 
 
 ## Options
@@ -44,8 +44,8 @@ gulp.task('notes', function() {
 /* BILL: Don't use a regular expression here, .indexOf is plenty idiot! */
 var index = file.search(/bill/);
 
-/* FIXME: This is broken */
-var durr = 'Hello +' World;
+/* FIXME: Extra plus dumb dumb */
+var durr = 'Hello +' + World;
 
 // TODO: Make some useful examples.
 var example = true;
