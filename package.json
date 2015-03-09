@@ -12,9 +12,25 @@
     "mocha": "*",
     "gulp": "^3.5.0"
   },
+  "keywords": [
+    "gulpplugin",
+    "todo",
+    "notes",
+    "gulpnote",
+    "comments",
+    "list",
+    "markdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crswll/gulp-notes"
+  },
+  "bugs": {
+    "url": "https://github.com/crswll/gulp-notes/issues"
+  },
   "scripts": {
     "test": "jshint . && jscs . && mocha tests/test.js"
   },
   "author": "Bill Criswell <bill.criswell@gmail.com>",
-  "license": "ISC"
+  "license": "MIT"
 }
