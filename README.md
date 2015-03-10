@@ -28,7 +28,7 @@ Quickly scan your files for specially formatted comments and dump them to a file
 
 ```javascript
 var gulp = require('gulp'),
-    notes= require('gulp-notes');
+    notes = require('gulp-notes');
 
 gulp.task('notes', function() {
   return gulp.src(paths.scripts)
