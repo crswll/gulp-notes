@@ -143,3 +143,23 @@ it('The `fileName` option should enable you to customize the file name', functio
     done();
   });
 });
+
+it('Should parse comments wrapped in {- -}', function (done) {
+  var files = [];
+
+  gulp.src([
+    path.join(__dirname, 'fixture', 'format.hs')
+  ])
+  .pipe(notes({
+    formats: ['{-', '-}']
+  }))
+  .on('data', function (data) {
+    files.push(data);
+  })
+  .on('end', function () {
+    var contents = files[0].contents.toString();
+    assert.notEqual(contents.indexOf('## WOW'), -1);
+    assert.notEqual(contents.indexOf('This is the most haskell I\'ve ever written.'), -1);
+    done();
+  });
+});
