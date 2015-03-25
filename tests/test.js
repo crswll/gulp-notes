@@ -125,3 +125,21 @@ it('Should combine line breaks into one line', function (done) {
     done();
   });
 });
+
+it('The `fileName` option should enable you to customize the file name', function (done) {
+  var files = [];
+
+  gulp.src([
+    path.join(__dirname, 'fixture', 'fixture.js')
+  ])
+  .pipe(notes({
+    fileName: 'custom.md'
+  }))
+  .on('data', function (data) {
+    files.push(data);
+  })
+  .on('end', function () {
+    assert.strictEqual(path.basename(files[0].path), 'custom.md');
+    done();
+  });
+});
