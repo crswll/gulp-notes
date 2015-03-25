@@ -144,7 +144,7 @@ it('The `fileName` option should enable you to customize the file name', functio
   });
 });
 
-it('Should parse comments wrapped in {- -}', function (done) {
+it('The `formats` option should allow you to add different comment syntaxes.', function (done) {
   var files = [];
 
   gulp.src([
