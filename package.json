@@ -21,13 +21,7 @@
     "list",
     "markdown"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/crswll/gulp-notes"
-  },
-  "bugs": {
-    "url": "https://github.com/crswll/gulp-notes/issues"
-  },
+  "repository": "crswll/gulp-notes",
   "scripts": {
     "test": "jshint . && jscs . && mocha tests/test.js"
   },
